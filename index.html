@@ -7,18 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            padding: 40px 0;
 
-            /* Fond floral (ton image) */
             background-image: url("fond.png");
             background-size: contain;
             background-position: center;
@@ -28,22 +24,31 @@
             font-family: "Montserrat", sans-serif;
         }
 
-        .card {
-            max-width: 650px;
+        .container {
             width: 90%;
-            background-color: rgba(255, 255, 255, 0.96);
-            padding: 40px 32px;
-            border-radius: 18px;
+            max-width: 750px;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 40px 30px;
+            border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e8ded7;
+        }
+
+        h1, h2 {
+            font-family: "Playfair Display", serif;
+            text-align: center;
+            color: #4b3c35;
+            margin-top: 0;
         }
 
         h1 {
-            font-family: "Playfair Display", serif;
-            font-size: 2.1rem;
-            font-weight: 600;
-            text-align: center;
-            margin: 0 0 14px;
-            color: #4b3c35;
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
         }
 
         p {
@@ -54,101 +59,14 @@
             margin: 6px 0;
         }
 
-        .emoji {
-            font-size: 1.2rem;
-        }
-
-        .iban-box {
-            margin-top: 18px;
-            padding: 14px 16px;
-            border-radius: 12px;
+        .box {
             background: #ffffff;
             border: 1px solid #e4d7cf;
-            text-align: center;
+            border-radius: 14px;
+            padding: 20px 18px;
+            margin-top: 25px;
         }
 
-        .iban-box p {
-            margin: 4px 0;
+        .iban-text {
             font-family: "Courier New", monospace;
-            font-size: 0.98rem;
-            color: #333333;
-        }
-
-        .btn-copy {
-            margin-top: 12px;
-            background: #e07a5f;
-            color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 18px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            font-family: "Montserrat", sans-serif;
-        }
-
-        .btn-copy:hover {
-            background: #d5674a;
-        }
-
-        .small-note {
-            margin-top: 18px;
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 600px) {
-            .card {
-                padding: 28px 20px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <h1>Bienvenue à notre mariage <span class="emoji">🌸</span></h1>
-
-        <p>Nous sommes très heureux de partager ce moment avec vous.</p>
-        <p>Votre présence est notre plus beau cadeau ✨</p>
-
-        <h1>Projet voyage de noces <span class="emoji"></span></h1>
-        <p>Nous n’avons pas souhaité faire de liste de mariage.
-Si vous le souhaitez vous pouvez participer à notre futur voyage de noces.
-Merci du fond du cœur pour votre générosité.</p>
-        <p style="margin-top: 18px;">
-            Si vous souhaitez participer à notre voyage de noces :
-        </p>
-        <h1>Participation par virement <span class="emoji"></span></h1>
-        p>N’oubliez pas de renseigner votre nom afin qu’on puisse vous remercier !</p>
-        <div class="iban-box">
-            <p>IBAN : <span id="iban-text">FR76 XXXX XXXX XXXX</span></p>
-            <p>BIC : XXXXXXXX</p>
-            <button class="btn-copy" onclick="copierIBAN()">📋 Copier l'IBAN</button>
-        </div>
-
-        <p class="small-note">
-            Une urne sera également à disposition le jour J 
-            pour celles et ceux qui préfèrent contribuer sur place, ou nous laisser un petit mot 💖
-            
-            Merci du fond du cœur pour votre générosité.
-        </p>
-    </div>
-
-    <script>
-        function copierIBAN() {
-            const iban = document.getElementById("iban-text").textContent.trim();
-            navigator.clipboard.writeText(iban).then(function() {
-                alert("IBAN copié dans le presse-papiers !");
-            }).catch(function() {
-                alert("Impossible de copier l'IBAN, merci de le sélectionner manuellement.");
-            });
-        }
-    </script>
-</body>
-</html>
+            font
