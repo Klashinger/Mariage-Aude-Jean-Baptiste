@@ -69,4 +69,67 @@
 
         .iban-text {
             font-family: "Courier New", monospace;
-            font
+            font-size: 1rem;
+            color: #333;
+            margin: 4px 0;
+        }
+
+        .btn-copy {
+            margin-top: 12px;
+            background: #e07a5f;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .btn-copy:hover {
+            background: #d5674a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box">
+            <h2>Bienvenue à notre mariage 🌸</h2>
+            <p>Nous sommes très heureux de partager ce moment unique avec vous.</p>
+            <p>Votre présence est notre plus beau cadeau ✨</p>
+        </div>
+
+        <div class="box">
+            <h2>Voyage de noces</h2>
+            <p>Nous n’avons pas souhaité faire de liste de mariage.</p>
+            <p>Si vous le souhaitez, vous pouvez participer à notre futur voyage de noces.</p>
+            <p>Merci du fond du cœur pour votre générosité.</p>
+        </div>
+
+        <div class="box">
+            <h2>Participation par virement</h2>
+            <p>N’oubliez pas de renseigner votre nom afin que nous puissions vous remercier.</p>
+
+            <p class="iban-text">IBAN : <span id="iban">FR76 XXXX XXXX XXXX</span></p>
+            <p class="iban-text">BIC : XXXXXXXX</p>
+
+            <button class="btn-copy" onclick="copierIBAN()">📋 Copier l'IBAN</button>
+        </div>
+
+        <div class="box">
+            <p>Une urne sera également à disposition le jour J pour celles et ceux qui préfèrent contribuer sur place ou nous laisser un petit mot ❤️</p>
+        </div>
+
+    </div>
+
+    <script>
+        function copierIBAN() {
+            const iban = document.getElementById("iban").textContent.trim();
+            navigator.clipboard.writeText(iban).then(() => {
+                alert("IBAN copié !");
+            });
+        }
+    </script>
+</body>
+</html>
