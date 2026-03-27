@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Bienvenue à notre mariage</title>
 
-    <!-- Police élégante proche d’un faire-part -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -19,80 +18,90 @@
             justify-content: center;
             align-items: center;
 
-            /* Fond floral */
+            /* Fond floral (ton image) */
             background-image: url("fond.png");
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
+            background-color: #ffffff;
 
-            /* Couleur douce pour harmoniser */
-            background-color: #faf5f2;
             font-family: "Montserrat", sans-serif;
         }
 
         .card {
-            max-width: 750px;
+            max-width: 650px;
             width: 90%;
-            background-color: rgba(255, 255, 255, 0.92);
-            padding: 50px 40px;
-            border-radius: 20px;
-
-            /* Ombre douce comme une carte imprimée */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
-            /* Légère bordure beige pour rappeler le faire-part */
-            border: 1px solid #e8ded7;
+            background-color: rgba(255, 255, 255, 0.96);
+            padding: 40px 32px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
         }
 
         h1 {
             font-family: "Playfair Display", serif;
-            font-size: 2.4rem;
+            font-size: 2.1rem;
             font-weight: 600;
             text-align: center;
-            margin-bottom: 10px;
-            color: #5a4a42;
-        }
-
-        h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 35px;
-            margin-bottom: 10px;
-            color: #7a6a60;
+            margin: 0 0 14px;
+            color: #4b3c35;
         }
 
         p {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
             color: #5a4a42;
-            margin: 8px 0;
+            margin: 6px 0;
         }
 
-        .iban {
+        .emoji {
+            font-size: 1.2rem;
+        }
+
+        .iban-box {
+            margin-top: 18px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid #e4d7cf;
+            text-align: center;
+        }
+
+        .iban-box p {
+            margin: 4px 0;
             font-family: "Courier New", monospace;
-            font-size: 1rem;
-            margin-top: 12px;
-            color: #333;
+            font-size: 0.98rem;
+            color: #333333;
         }
 
-        .emoji, .heart {
-            font-size: 1.3rem;
+        .btn-copy {
+            margin-top: 12px;
+            background: #e07a5f;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .btn-copy:hover {
+            background: #d5674a;
+        }
+
+        .small-note {
+            margin-top: 18px;
+            font-size: 0.95rem;
         }
 
         @media (max-width: 600px) {
             .card {
-                padding: 30px 20px;
+                padding: 28px 20px;
             }
 
             h1 {
-                font-size: 1.9rem;
-            }
-
-            h2 {
-                font-size: 1.35rem;
+                font-size: 1.8rem;
             }
 
             p {
@@ -101,17 +110,37 @@
         }
     </style>
 </head>
-
 <body>
     <div class="card">
         <h1>Bienvenue à notre mariage <span class="emoji">🌸</span></h1>
-        <p>Nous sommes très heureux de partager ce moment unique avec vous.</p>
-        <p>Votre présence est déjà le plus beau cadeaux.</p>
 
-        <h2>Projet voyage de noces <span class="emoji">✨</span></h2>
-        <p>Nous n’avons pas souhaité faire de liste de mariage.</p>
-        <p>Si vous le souhaitez vous pouvez participer à notre futur voyage de noces.</p>
-        <p>Merci du fond du cœur pour votre générosité.</p>
+        <p>Nous sommes très heureux de partager ce moment avec vous.</p>
+        <p>Votre présence est notre plus beau cadeau ✨</p>
 
-        <h2>Participation par virement</h2>
-        <p>N’oubliez pas de renseigner votre nom afin qu’on puisse vous
+        <p style="margin-top: 18px;">
+            Si vous souhaitez participer à notre voyage de noces :
+        </p>
+
+        <div class="iban-box">
+            <p>IBAN : <span id="iban-text">FR76 XXXX XXXX XXXX</span></p>
+            <p>BIC : XXXXXXXX</p>
+            <button class="btn-copy" onclick="copierIBAN()">📋 Copier l'IBAN</button>
+        </div>
+
+        <p class="small-note">
+            Merci du fond du cœur pour votre générosité.
+        </p>
+    </div>
+
+    <script>
+        function copierIBAN() {
+            const iban = document.getElementById("iban-text").textContent.trim();
+            navigator.clipboard.writeText(iban).then(function() {
+                alert("IBAN copié dans le presse-papiers !");
+            }).catch(function() {
+                alert("Impossible de copier l'IBAN, merci de le sélectionner manuellement.");
+            });
+        }
+    </script>
+</body>
+</html>
