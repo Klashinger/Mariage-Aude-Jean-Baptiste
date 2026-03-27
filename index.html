@@ -1,7 +1,7 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<head><link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mariage</title>
@@ -10,7 +10,9 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') no-repeat center center/cover;
+  background: url('fond.png') no-repeat center center;
+  background-size: cover;
+  background-color: #f7f4f2;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -21,19 +23,34 @@ body {
   background: rgba(255, 255, 255, 0.85);
   padding: 30px;
   border-radius: 20px;
-  text-align: center;
+  text-align: left;
   max-width: 90%;
   width: 400px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-h1 {
-  margin-bottom: 10px;
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  color: #e07a5f;
 }
 
 p {
-  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  color: #d46a92;
 }
+
+h2 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}  
+
+ p {
+  line-height: 1.6;
+}
+
+h2 {
+  margin-top: 30px;
+} 
 
 .iban {
   font-weight: bold;
@@ -68,29 +85,53 @@ button:hover {
 <body>
 
 <div class="overlay">
-  <h1>💍 Prénom & Prénom</h1>
+  <h1>Bienvenue à notre mariage 🌸</h1>
 
-  <p>Bienvenue à notre mariage 💛</p>
+  <p>Nous sommes très heureux de partager ce moment...</p>
 
   <p>Votre présence est notre plus beau cadeau ✨</p>
 
   <p>Si vous souhaitez participer à notre voyage de noces :</p>
 
-  <div class="iban" id="iban">
-    FR76 XXXX XXXX XXXX XXXX
+  <div class="iban-box">
+  <p>IBAN : FR76 XXXX</p>
+  <p>BIC : XXXXX</p>
   </div>
 
+  .iban-box {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+  button {
+  background: #e07a5f;
+  border-radius: 8px;
+  padding: 10px;
+}
   <button onclick="copyIBAN()">📋 Copier l'IBAN</button>
 
   <p id="message" style="color: green; display: none;">IBAN copié ✅</p>
 </div>
 
+  
 <script>
 function copyIBAN() {
   const text = document.getElementById("iban").innerText;
   navigator.clipboard.writeText(text);
   document.getElementById("message").style.display = "block";
 }
+
+ @media (max-width: 600px) {
+  .overlay {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .flower {
+    width: 120px;
+  }
+} 
 </script>
 
 </body>
