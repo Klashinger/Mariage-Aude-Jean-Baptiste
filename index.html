@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Bienvenue à notre mariage</title>
+
+    <!-- Police élégante proche d’un faire-part -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
     <style>
         * {
             box-sizing: border-box;
@@ -11,110 +15,103 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: "Georgia", "Times New Roman", serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #fdf9f7;
+
+            /* Fond floral */
             background-image: url("fond.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+
+            /* Couleur douce pour harmoniser */
+            background-color: #faf5f2;
+            font-family: "Montserrat", sans-serif;
         }
 
         .card {
-            max-width: 700px;
+            max-width: 750px;
             width: 90%;
             background-color: rgba(255, 255, 255, 0.92);
-            padding: 40px 32px;
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
+            padding: 50px 40px;
+            border-radius: 20px;
 
-        h1, h2 {
-            margin: 0 0 12px;
-            text-align: center;
+            /* Ombre douce comme une carte imprimée */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+            /* Légère bordure beige pour rappeler le faire-part */
+            border: 1px solid #e8ded7;
         }
 
         h1 {
-            font-size: 2rem;
-            letter-spacing: 0.03em;
+            font-family: "Playfair Display", serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #5a4a42;
         }
 
         h2 {
-            font-size: 1.4rem;
-            margin-top: 28px;
-        }
-
-        .emoji {
-            font-size: 1.2rem;
+            font-family: "Playfair Display", serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 35px;
+            margin-bottom: 10px;
+            color: #7a6a60;
         }
 
         p {
-            margin: 6px 0;
-            line-height: 1.5;
-            font-size: 1rem;
             text-align: center;
-        }
-
-        .section {
-            margin-top: 22px;
-        }
-
-        .highlight {
-            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #5a4a42;
+            margin: 8px 0;
         }
 
         .iban {
-            margin-top: 10px;
             font-family: "Courier New", monospace;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            margin-top: 12px;
+            color: #333;
         }
 
-        .heart {
-            font-size: 1.1rem;
+        .emoji, .heart {
+            font-size: 1.3rem;
         }
 
         @media (max-width: 600px) {
             .card {
-                padding: 28px 20px;
+                padding: 30px 20px;
             }
 
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.9rem;
             }
 
             h2 {
-                font-size: 1.25rem;
+                font-size: 1.35rem;
+            }
+
+            p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="card">
         <h1>Bienvenue à notre mariage <span class="emoji">🌸</span></h1>
         <p>Nous sommes très heureux de partager ce moment unique avec vous.</p>
         <p>Votre présence est déjà le plus beau cadeaux.</p>
 
-        <div class="section">
-            <h2>Projet voyage de noces <span class="emoji">✨</span></h2>
-            <p>Nous n’avons pas souhaité faire de liste de mariage.</p>
-            <p>Si vous le souhaitez vous pouvez participer à notre futur voyage de noces.</p>
-            <p>Merci du fond du cœur pour votre générosité.</p>
-        </div>
+        <h2>Projet voyage de noces <span class="emoji">✨</span></h2>
+        <p>Nous n’avons pas souhaité faire de liste de mariage.</p>
+        <p>Si vous le souhaitez vous pouvez participer à notre futur voyage de noces.</p>
+        <p>Merci du fond du cœur pour votre générosité.</p>
 
-        <div class="section">
-            <h2>Participation par virement</h2>
-            <p>N’oubliez pas de renseigner votre nom afin qu’on puisse vous remercier !</p>
-            <p class="iban">BAN : FR76 XXX<br>BIC : BOUS FRPP XXX</p>
-        </div>
-
-        <div class="section">
-            <p>
-                Une urne sera également à disposition le jour J pour celles et ceux qui préfèrent contribuer sur place,
-                ou nous laisser un petit mot <span class="heart">❤️</span>
-            </p>
-        </div>
-    </div>
-</body>
-</html>
+        <h2>Participation par virement</h2>
+        <p>N’oubliez pas de renseigner votre nom afin qu’on puisse vous
